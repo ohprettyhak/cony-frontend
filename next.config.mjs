@@ -8,11 +8,34 @@ const nextConfig = {
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack']
+      use: ['@svgr/webpack'],
     });
-
     return config;
-  }
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `https://api.conymind.com/:path*`,
+      },
+    ];
+  },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.conymind.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+      },
+    ],
+  },
 };
 
 export default withVanillaExtract(nextConfig);

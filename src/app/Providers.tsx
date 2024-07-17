@@ -13,7 +13,7 @@ interface ProvidersProps {
 
 export default function Providers({ children }: ProvidersProps) {
   const pathname: string = usePathname();
-  const pathSegments = pathname.split('/').filter(Boolean);
+  const pathSegments: string[] = pathname.split('/').filter(Boolean);
 
   const [queryClient] = useState(
     () =>

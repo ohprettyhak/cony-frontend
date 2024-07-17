@@ -97,14 +97,29 @@ export const colors = {
   gray800: '#F7F7F7',
   gray900: '#F7F7F7',
   gray950: '#1C1B1F',
+
+  surf200: '#C8DFC9',
+
+  wine200: '#D8D8E5',
+  wine700: '#555068',
+
+  perano950: '#30325B',
 };
 
 export const typographies = {};
 
 export const layerStyles = {
-  title: {
+  'section-header': {
+    display: 'flex',
+    width: '100%',
+    minHeight: rem(34),
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingInline: rem(32),
     marginTop: rem(72),
-    marginLeft: rem(36),
+    userSelect: 'none',
+  },
+  'section-title': {
     fontSize: rem(20),
     fontWeight: '600',
     lineHeight: '160%',
@@ -132,6 +147,8 @@ export const sizes = {
 export const theme = createGlobalTheme(':root', {
   colors,
   typographies,
+  layouts,
   layerStyles,
   sizes,
+  spaces,
 });

@@ -20,6 +20,8 @@ export const container = style({
   borderRadius: `${rem(20)} ${rem(20)} 0 0`,
   background: 'rgba(255, 255, 255, 0.30)',
   backdropFilter: `blur(${rem(50)})`,
+  willChange: 'backdrop-filter',
+  transform: 'translateZ(0)',
 });
 
 export const menu = style({

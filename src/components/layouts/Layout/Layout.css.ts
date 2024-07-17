@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { theme } from '@/styles/theme.css';
+import { rem } from '@/styles/pxto';
 
 export const root = style({
   display: 'flex',
@@ -16,6 +17,9 @@ export const main = style({
   width: '100%',
   maxWidth: theme.sizes.appWidth,
   marginInline: 'auto',
-  paddingInline: theme.sizes.appInlinePadding,
   backgroundColor: '#F5F5F5',
+});
+
+export const mainBottomPadding = style({
+  paddingBottom: `calc(${rem(104)} + env(safe-area-inset-bottom))`,
 });
