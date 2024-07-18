@@ -6,6 +6,7 @@ import { theme } from '@/styles/theme.css';
 export const cardList = style({
   ...theme.layouts.column,
   marginTop: theme.spaces.sm,
+  marginInline: theme.spaces.sm,
   gap: theme.spaces.sm,
 });
 

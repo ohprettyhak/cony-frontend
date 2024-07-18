@@ -7,6 +7,7 @@ const queryKeys = {
   ],
   cards: () => ['cards'],
   dailyQuote: () => ['dailyQuote'],
+  suggestQuestions: () => ['suggestQuestions'],
 };
 
 export default queryKeys;

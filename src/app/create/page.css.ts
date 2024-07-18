@@ -37,7 +37,8 @@ export const categoryItemPressed = style({
 // questions
 export const questionList = style({
   ...theme.layouts.column,
-  marginTop: rem(16),
+  marginTop: theme.spaces.md,
+  marginInline: theme.spaces.sm,
   gap: rem(8),
 });
 

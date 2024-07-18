@@ -24,7 +24,7 @@ const Weather: FC = (): ReactElement | null => {
         width={16}
         height={16}
         draggable={false}
-        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${weather.icon}`}
+        src={new URL(weather.icon, process.env.NEXT_PUBLIC_IMAGE_URL).href}
         alt={weather.description}
       />
       <p className={styles.text}>{weather.temperature.toFixed(1)}℃</p>

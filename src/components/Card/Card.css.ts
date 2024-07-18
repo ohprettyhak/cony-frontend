@@ -7,7 +7,6 @@ export const root = style({
   ...theme.layouts.column,
   position: 'relative',
   paddingBlock: rem(24),
-  marginInline: rem(8),
   borderRadius: rem(16),
 });
 

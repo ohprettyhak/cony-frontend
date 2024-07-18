@@ -1,16 +1,13 @@
 'use client';
 import { ReactElement } from 'react';
 
-import LightBulbIcon from '@/assets/icons/light-bulb.svg';
-import Card from '@/components/Card';
 import Layout from '@/components/layouts/Layout';
 import { sprinkles } from '@/styles/sprinkles.css';
-import { theme } from '@/styles/theme.css';
 
+import DailyQuote from './_components/DailyQuote';
 import RecommendCard from './_components/RecommendCard';
 import Weather from './_components/Weather';
 import * as styles from './page.css';
-import DailyQuote from '@/app/_components/DailyQuote';
 
 export default function Home(): ReactElement {
   return (
@@ -33,7 +30,7 @@ export default function Home(): ReactElement {
           </div>
         ))}
       </div>
-      
+
       <DailyQuote />
       <RecommendCard />
     </Layout>
