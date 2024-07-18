@@ -1,7 +1,14 @@
 'use client';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { Fragment, ReactElement, Suspense, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import {
+  Fragment,
+  ReactElement,
+  Suspense,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 
 import MicIcon from '@/assets/icons/mic.svg';
 import NextPlanIcon from '@/assets/icons/next_plan.svg';
@@ -17,6 +24,7 @@ import { theme } from '@/styles/theme.css';
 import * as styles from './page.css';
 
 const SuspenseContent = (): ReactElement => {
+  const router = useRouter();
   const { data } = useSuggestQuestionsQuery();
   const suggestQuestions = data?.data;
 
@@ -32,11 +40,33 @@ const SuspenseContent = (): ReactElement => {
     interimTranscript,
     startListening,
     stopListening,
+    resetTranscript,
   } = useSpeechRecognition();
+
+  const [title, setTitle] = useState(
+    '직장에서 친구나 동료에게 의욕을 북돋아준 일이 있었나요?',
+  );
+
+  const changeTitle = useCallback(() => {
+    setTitle('퇴근을 앞당기게 하는 사용자님의 비결은 무엇인가요?');
+    stopListening();
+    setTimeout(() => {
+      resetTranscript();
+      startListening();
+    }, 100);
+  }, [resetTranscript, startListening, stopListening]);
 
   useEffect(() => {
     startListening();
-  }, [startListening]);
+
+    const timer = setTimeout(changeTitle, 10000);
+
+    return () => {
+      clearTimeout(timer);
+      stopListening();
+      resetTranscript();
+    };
+  }, [changeTitle, startListening, stopListening, resetTranscript]);
 
   return (
     <Fragment>
@@ -46,11 +76,7 @@ const SuspenseContent = (): ReactElement => {
             <span className={styles.recordStatus}>
               {isListening ? '녹음 중이에요' : '녹음이 종료되었어요'}
             </span>
-            <h3 className={styles.recordTitle}>
-              친구나 직장에서 동료에게
-              <br />
-              의욕을 북돋아준 일이 있었나요?
-            </h3>
+            <h3 className={styles.recordTitle}>{title}</h3>
             <p className={styles.recordText}>
               {transcript} {interimTranscript}
             </p>
@@ -91,7 +117,10 @@ const SuspenseContent = (): ReactElement => {
               gap: 'sm',
             })}
           >
-            <button className={styles.nextStepIcon}>
+            <button
+              className={styles.nextStepIcon}
+              onClick={() => router.replace('/create')}
+            >
               <NextPlanIcon width={24} height={24} />
             </button>
             <button

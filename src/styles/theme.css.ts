@@ -105,6 +105,10 @@ export const colors = {
 
   perano50: '#F1F5FC',
   perano950: '#232443',
+
+  tealblue200: '#BDE8FA',
+  tealblue900: '#0E425B',
+  tealblue950: '#0B3146',
 };
 
 export const typographies = {};

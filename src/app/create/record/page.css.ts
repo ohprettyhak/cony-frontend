@@ -39,12 +39,13 @@ export const recordStatus = style({
 
 export const recordTitle = style({
   marginTop: theme.spaces.xxxl,
-  marginInline: theme.spaces.xl,
+  marginInline: theme.spaces.xxxl,
   color: theme.colors.gray950,
   fontSize: rem(20),
   fontWeight: 600,
   lineHeight: '160%',
   textAlign: 'center',
+  wordBreak: 'keep-all',
 });
 
 export const recordText = style({

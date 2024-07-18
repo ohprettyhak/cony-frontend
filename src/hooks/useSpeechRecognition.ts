@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface UseSpeechRecognitionResult {
   isListening: boolean;
-  isRecordingStopped: boolean;
   transcript: string;
   interimTranscript: string;
   startListening: () => void;
@@ -12,7 +11,6 @@ interface UseSpeechRecognitionResult {
 
 const useSpeechRecognition = (): UseSpeechRecognitionResult => {
   const [isListening, setIsListening] = useState<boolean>(false);
-  const [isRecordingStopped, setIsRecordingStopped] = useState<boolean>(true);
   const [transcript, setTranscript] = useState<string>('');
   const [interimTranscript, setInterimTranscript] = useState<string>('');
   const recognitionRef = useRef<SpeechRecognition | null>(null);
@@ -43,6 +41,7 @@ const useSpeechRecognition = (): UseSpeechRecognitionResult => {
 
       recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
         console.error('Speech recognition error', event);
+        setIsListening(false);
       };
 
       recognitionRef.current = recognition;
@@ -52,7 +51,6 @@ const useSpeechRecognition = (): UseSpeechRecognitionResult => {
   const startListening = useCallback(() => {
     if (recognitionRef.current) {
       setIsListening(true);
-      setIsRecordingStopped(false);
       recognitionRef.current.start();
     }
   }, []);
@@ -60,7 +58,6 @@ const useSpeechRecognition = (): UseSpeechRecognitionResult => {
   const stopListening = useCallback(() => {
     if (recognitionRef.current) {
       setIsListening(false);
-      setIsRecordingStopped(true);
       recognitionRef.current.stop();
     }
   }, []);
@@ -72,7 +69,6 @@ const useSpeechRecognition = (): UseSpeechRecognitionResult => {
 
   return {
     isListening,
-    isRecordingStopped,
     transcript,
     interimTranscript,
     startListening,

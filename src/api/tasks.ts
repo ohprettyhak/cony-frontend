@@ -1,6 +1,5 @@
 import instance from '@/api/index';
 import { HttpResponse } from '@/models/HttpResponse';
-import { SuggestQuestionsResponse } from '@/models/SuggestQuestions';
 import { Task, TaskPayload } from '@/models/Tasks';
 
 export const getTasks = async (): Promise<HttpResponse<Task[]>> => {

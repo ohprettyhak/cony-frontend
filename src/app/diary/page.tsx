@@ -1,5 +1,6 @@
 'use client';
 import { clsx } from 'clsx';
+import Link from 'next/link';
 import { ReactElement } from 'react';
 import Masonry from 'react-responsive-masonry';
 
@@ -16,19 +17,21 @@ export default function Page(): ReactElement {
           다이어리
         </h1>
       </header>
-      <div className={styles.filterContainer}>filter</div>
+      {/*<div className={styles.filterContainer}>filter</div>*/}
       <Masonry className={styles.diaryList} columnsCount={2} gutter="0.5rem">
         <div className={sprinkles({ layerStyles: 'card' })}>
-          <div
-            className={clsx(
-              styles.diaryTextContainer,
-              styles.diaryTextContainerPadding.large,
-            )}
-          >
-            <h3>직장에서의 긴장된 첫날</h3>
-            <p>6월 25일</p>
-            <p>24℃, 분당구 삼평동</p>
-          </div>
+          <Link href="/diary/1" passHref>
+            <div
+              className={clsx(
+                styles.diaryTextContainer,
+                styles.diaryTextContainerPadding.large,
+              )}
+            >
+              <h3>자기 성찰의 시간</h3>
+              <p>7월 18일</p>
+              <p>27℃, 영통구 영통동</p>
+            </div>
+          </Link>
         </div>
       </Masonry>
     </Layout>
