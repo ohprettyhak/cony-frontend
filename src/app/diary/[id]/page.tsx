@@ -46,7 +46,7 @@ export default function Page(): ReactElement {
         </div>
       </div>
 
-      <h2 className={styles.diaryTitle}>자기 성찰의 시간</h2>
+      <h2 className={styles.diaryTitle}>작은 실천이 모여 큰 변화를 만든다.</h2>
 
       <div
         className={sprinkles({
@@ -85,7 +85,7 @@ export default function Page(): ReactElement {
             transition={{ duration: 0.5 }}
           >
             <MilestoneRecommend
-              buttonTitle="매일 글 쓰는 습관 만들기"
+              buttonTitle="사람들에게 응원의 말 건네기"
               onClick={() => setMilestone(false)}
             />
           </motion.div>
