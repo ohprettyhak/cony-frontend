@@ -64,14 +64,7 @@ export default function Page(): ReactElement {
       </div>
 
       <p className={styles.diaryContent}>
-        오늘 저녁, 나는 잠시 시간을 내어 자기 성찰의 시간을 가졌다. 요즘 바쁜
-        일상에 쫓기다 보니 내 마음의 소리를 듣는 것을 소홀히 했다는 걸 깨달았다.
-        먼저, 최근 내 행동들을 돌아보았다. 일에 대한 스트레스로 가족들에게
-        짜증을 내는 경우가 많았던 것 같다. 이는 내가 개선해야 할 부분이다.
-        가족은 내 삶의 중심이며, 그들에게 더 친절하고 이해심 있게 대해야겠다.
-        또한, 내 꿈과 목표에 대해 생각해 보았다. 작가가 되고 싶다는 오랜 꿈을
-        위해 무엇을 하고 있는지 돌아보니, 최근 글쓰기를 게을리한 것이
-        떠올랐다.&nbsp;
+        오늘은 회사에서 의미있는 하루를 보냈다. 최근 힘들어하던 동료에게 응원의 말을 건네며 자신감을 되찾도록 북돋아주었다. 작은 행동이었지만 그 친구가 의욕을 되찾는 모습을 보니 뿌듯했다.&nbsp;
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: milestone ? 1 : 0.5, y: 0 }}
@@ -79,7 +72,7 @@ export default function Page(): ReactElement {
           transition={{ duration: 0.5 }}
           className={milestone ? 'milestone' : ''}
         >
-          앞으로는 매일 조금씩 이라도 글을 쓰는 습관을 들여야겠다.
+          앞으로도 주변 사람들에게 따뜻한 관심과 격려를 아끼지 말아야겠다.
         </motion.span>
       </p>
 
@@ -100,9 +93,7 @@ export default function Page(): ReactElement {
       </AnimatePresence>
 
       <p className={styles.diaryContent}>
-        마지막으로, 내가 감사해야 할 것들을 떠올려 보았다. 건강, 사랑하는 가족,
-        안정된 직장 등 많은 것들이 있었다. 이런 것들을 당연하게 여기지 말고 더
-        감사히 여겨야겠다.&nbsp;
+        한편, 나 자신도 업무 효율을 높이기 위해 노력 중이다. To-do 리스트를 활용해 중요도에 따라 일을 처리하고, 불필요한 낭비 요소는 제거하고 있다. 덕분에 요즘은 일찍 퇴근할 수 있는 날이 많아졌다. 퇴근 후 여유로운 저녁 시간을 갖게 되어 삶의 질도 높아지는 것 같다.&nbsp;
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,14 +101,13 @@ export default function Page(): ReactElement {
           transition={{ duration: 0.5 }}
           className="suggest"
         >
-          짧은 성찰의 시간이 내게 큰 깨달음을 주었다.
+          균형 잡힌 삶을 위해 앞으로도 계속 노력해야지!
         </motion.span>
       </p>
-      <Suggest suggest="어떤 깨달음을 얻었는지 조금 더 생각해보면 어떨까요?" />
+      <Suggest suggest="어떤 노력을 할 수 있는지 더 생각해보는 것은 어떨까요??" />
 
       <p className={styles.diaryContent}>
-        앞으로는 정기적으로 이런 시간을 가져야겠다. 나 자신을 더 잘 이해하고 더
-        나은 사람이 되기 위해 노력할 것이다.
+        오늘의 교훈: "작은 실천이 모여 큰 변화를 만든다."
       </p>
 
       <div className={sprinkles({ paddingTop: 'xxxl' })} />
