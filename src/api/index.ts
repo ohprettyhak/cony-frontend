@@ -15,6 +15,7 @@ const instance = axios.create({
 export default instance;
 
 export const getDailyQuote = async (): Promise<HttpResponse<Quote>> => {
-  const { data } = await instance.get<HttpResponse<Quote>>(`/api/getDailyQuote`);
+  const { data } =
+    await instance.get<HttpResponse<Quote>>(`/api/getDailyQuote`);
   return data;
 };
