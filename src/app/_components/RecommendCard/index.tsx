@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import Card from '@/components/Card';
 import useCardsQuery from '@/hooks/queries/useCardsQuery';
 import { rem } from '@/styles/pxto';
@@ -22,12 +24,12 @@ const RecommendCard = () => {
             <Card bgColor={card.cardColorAccent} style={{ marginTop: rem(24) }}>
               {card.links.map((link, index) => {
                 return (
-                  <>
-                    <Card.Link key={index} {...link} />
+                  <Fragment key={index}>
+                    <Card.Link {...link} />
                     {index === card.links.length - 1 ? null : (
                       <hr className={styles.cardLinkDivider} />
                     )}
-                  </>
+                  </Fragment>
                 );
               })}
             </Card>

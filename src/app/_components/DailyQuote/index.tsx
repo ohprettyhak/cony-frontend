@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import LightBulbIcon from '@/assets/icons/light-bulb.svg';
+import LightBulbIcon from '@/assets/icons/lightbulb.svg';
 import Card from '@/components/Card';
 import useDailyQuoteQuery from '@/hooks/queries/useDailyQuoteQuery';
 import { sprinkles } from '@/styles/sprinkles.css';
@@ -17,7 +17,7 @@ const DailyQuote = (): ReactElement | null => {
     <div className={sprinkles({ marginLeft: 'sm', marginRight: 'sm' })}>
       <Card bgColor={theme.colors.surf200}>
         <div className={styles.headContainer}>
-          <LightBulbIcon width={24} height={24} color={theme.colors.gray950} />
+          <LightBulbIcon width={16} height={16} color={theme.colors.gray950} />
           Cony의 오늘 한마디
         </div>
         <h3 className={styles.quote}>{data.data.content}</h3>

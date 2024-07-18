@@ -1,4 +1,4 @@
-import AddCircleIcon from '@/assets/icons/add-circle.svg';
+import AddCircleIcon from '@/assets/icons/add_circle.svg';
 import BookIcon from '@/assets/icons/book.svg';
 import HomeIcon from '@/assets/icons/home.svg';
 import MenuIcon from '@/assets/icons/menu.svg';

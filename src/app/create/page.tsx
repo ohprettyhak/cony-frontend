@@ -1,12 +1,12 @@
 'use client';
 
-import { clsx } from 'clsx';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ReactElement, Suspense } from 'react';
 
 import MicIcon from '@/assets/icons/mic.svg';
 import Card from '@/components/Card';
+import { ChipRadioButton, ChipRadioGroup } from '@/components/ChipRadioGroup';
 import Layout from '@/components/layouts/Layout';
 import useSuggestQuestionsQuery from '@/hooks/queries/useSuggestQuestionsQuery';
 import { SuggestQuestionCategory } from '@/models/SuggestQuestions';
@@ -14,7 +14,7 @@ import { sprinkles } from '@/styles/sprinkles.css';
 
 import * as styles from './page.css';
 
-function PageContent(): ReactElement {
+const SuspenseContent = (): ReactElement => {
   const { data } = useSuggestQuestionsQuery();
   const suggestQuestions = data?.data;
 
@@ -35,21 +35,23 @@ function PageContent(): ReactElement {
         </Link>
       </header>
 
-      <ul className={styles.categoryList}>
-        {categories.map(category => (
-          <li
-            key={category.id}
-            className={clsx(
-              styles.categoryItem,
-              category.id === current && styles.categoryItemPressed,
-            )}
-          >
-            <Link href={`/create?category=${category.id}`}>
-              {category.text}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div
+        className={sprinkles({
+          marginTop: 'lg',
+          marginLeft: 'lg',
+          marginRight: 'lg',
+        })}
+      >
+        <ChipRadioGroup name="category" value={current?.toString()}>
+          {categories.map(category => (
+            <ChipRadioButton value={category.id.toString()} key={category.id}>
+              <Link href={`/create?category=${category.id}`}>
+                {category.text}
+              </Link>
+            </ChipRadioButton>
+          ))}
+        </ChipRadioGroup>
+      </div>
 
       <div className={styles.questionList}>
         {suggestQuestions?.suggestQuestions[current]?.map(question => (
@@ -65,13 +67,13 @@ function PageContent(): ReactElement {
       </div>
     </>
   );
-}
+};
 
 export default function Page(): ReactElement {
   return (
     <Layout>
       <Suspense>
-        <PageContent />
+        <SuspenseContent />
       </Suspense>
     </Layout>
   );
